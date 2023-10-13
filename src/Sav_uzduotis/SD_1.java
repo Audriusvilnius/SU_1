@@ -47,9 +47,7 @@ public class SD_1 {
         for (int i = 0; i < str.length(); i++) {
             int number = Integer.parseInt(String.valueOf(str.charAt(i)));
             for (int y = i + 1; y < str.length(); y++) {
-                if (number == Integer.parseInt(String.valueOf(str.charAt(y)))) {
-                    return false;
-                }
+                if (number == Integer.parseInt(String.valueOf(str.charAt(y)))) return false;
             }
         }
         return true;
@@ -62,9 +60,7 @@ public class SD_1 {
             int value = Integer.parseInt(String.valueOf(str.charAt(i)));
             if (i < 3) {
                 firsTrio += value;
-            } else {
-                secondTrio += value;
-            }
+            } else secondTrio += value;
         }
         return firsTrio == secondTrio;
     }
