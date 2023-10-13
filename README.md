@@ -1,5 +1,5 @@
 # Savarankiska uzduotis NR1
-*Parašyti programą, kuri nustato,
+## Parašyti programą, kuri nustato,
 ar loterijos bilietas yra laimingas. Loterijos bilieto šešiaženklisnumeris
 laikomas laimingu, jei jo pirmų trijų
 Skaičių suma yra lygi paskutinių trijų
