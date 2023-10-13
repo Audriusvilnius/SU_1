@@ -6,23 +6,21 @@ import java.util.Scanner;
 public class SD_1 {
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
-        for (; ; ) {
-            System.out.println("Iveskite šešiaženklį sklaiciu, be pasikartojančiu skaičių: ");
-            String ticket_txt = inp.next();
-            if (isNumeric(ticket_txt) && ticket_txt.length() == 6) {
-                if (noDuplicate(ticket_txt)) {
-                    if (checkTickets(ticket_txt)) {
-                        System.out.println("Jusu bilieto skaicius laimingas! ");
-                        count = 0;
-                    } else {
-                        System.out.println("Deja Jusu bilieto skaicius nelaimejo! ");
-                        System.out.println();
-                        randTicket();
-                    }
-                } else System.out.print("Ivestame skaičiuja pasikartoja skaičius. ");
-            } else {
-                System.out.println("Ivestas ne šešiaženklis skaičius");
-            }
+        System.out.println("Iveskite šešiaženklį sklaiciu, be pasikartojančiu skaičių: ");
+        String ticket_txt = inp.next();
+        if (isNumeric(ticket_txt) && ticket_txt.length() == 6) {
+            if (noDuplicate(ticket_txt)) {
+                if (checkTickets(ticket_txt)) {
+                    System.out.println("Jusu bilieto skaicius laimingas! ");
+                    count = 0;
+                } else {
+                    System.out.println("Deja Jusu bilieto skaicius nelaimejo! ");
+                    System.out.println();
+                    randTicket();
+                }
+            } else System.out.print("Ivestame skaičiuja pasikartoja skaičius. ");
+        } else {
+            System.out.println("Ivestas ne šešiaženklis skaičius");
         }
     }
 
@@ -30,7 +28,7 @@ public class SD_1 {
         Random random = new Random();
         int firsTrio = random.nextInt(100, 1000);
         int secondTrio = random.nextInt(100, 1000);
-        String str = Integer.toString(firsTrio) + Integer.toString(secondTrio);
+        String str = Integer.toString(firsTrio) + secondTrio;
         if (noDuplicate(str)) {
             count++;
             System.out.println("Bandymas Nr.: " + count + " - " + str);
@@ -61,10 +59,11 @@ public class SD_1 {
         int firsTrio = 0;
         int secondTrio = 0;
         for (int i = 0; i < str.length(); i++) {
+            int value = Integer.parseInt(String.valueOf(str.charAt(i)));
             if (i < 3) {
-                firsTrio = firsTrio + Integer.parseInt(String.valueOf(str.charAt(i)));
+                firsTrio += value;
             } else {
-                secondTrio = secondTrio + Integer.parseInt(String.valueOf(str.charAt(i)));
+                secondTrio += value;
             }
         }
         return firsTrio == secondTrio;
