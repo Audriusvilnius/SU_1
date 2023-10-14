@@ -26,9 +26,8 @@ public class SD_1 {
 
     private static void randTicket() {
         Random random = new Random();
-        int firsTrio = random.nextInt(100, 1000);
-        int secondTrio = random.nextInt(100, 1000);
-        String str = Integer.toString(firsTrio) + secondTrio;
+        int rand = random.nextInt(100000, 1000000);
+        String str = Integer.toString(rand);
         if (noDuplicate(str)) {
             count++;
             System.out.println("Bandymas Nr.: " + count + " - " + str);
@@ -39,11 +38,11 @@ public class SD_1 {
         } else randTicket();
     }
 
-    public static boolean isNumeric(String str) {
+    private static boolean isNumeric(String str) {
         return str != null && str.matches("\\d*\\.?\\d+");
     }
 
-    public static boolean noDuplicate(String str) {
+    private static boolean noDuplicate(String str) {
         for (int i = 0; i < str.length(); i++) {
             int number = Integer.parseInt(String.valueOf(str.charAt(i)));
             for (int y = i + 1; y < str.length(); y++) {
@@ -53,7 +52,7 @@ public class SD_1 {
         return true;
     }
 
-    public static boolean checkTickets(String str) {
+    private static boolean checkTickets(String str) {
         int firsTrio = 0;
         int secondTrio = 0;
         for (int i = 0; i < str.length(); i++) {
